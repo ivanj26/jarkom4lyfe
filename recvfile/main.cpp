@@ -1,14 +1,29 @@
 #include <stdlib.h>
+#include <sstream>
 #include "utility.h"
 #include "receiver.h"
 
-#define PORT 50000
-#define WINDOWSIZE 4
+int main(int argc, char *argv[]) {
+	stringstream portStr;
+	stringstream windowSizeStr;
+	stringstream bufferSizeStr;
 
-int main(int argc, char const *argv[]) {
-	Receiver r(PORT, WINDOWSIZE);
+	portStr << argv[4];
+	windowSizeStr << argv[2];
+	bufferSizeStr << argv[3];
+
+	unsigned int port;
+	unsigned int windowSize;
+	unsigned int bufferSize;
+
+	bufferSizeStr >> bufferSize;
+	windowSizeStr >> windowSize;
+	portStr >> port;
+
+	Receiver r(port, windowSize, bufferSize);
 	r.listen();
-	char *p = (char*) "received";
+
+	char *p = argv[1];
 	r.saveToFile(p);
 	return 0;
 }

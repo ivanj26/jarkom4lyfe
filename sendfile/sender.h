@@ -1,7 +1,6 @@
 #ifndef SENDER_H
 #define SENDER_H
 
-#define BUFFER_SIZE 10
 #define TIMEOUT 5
 
 #include <stdio.h>
@@ -16,7 +15,7 @@
 
 class Sender {
 	public:
-	  Sender(int, int);
+	  Sender(int, int, char*);
 	  ~Sender();
 
 	  void readFile(char *);
@@ -24,12 +23,12 @@ class Sender {
 	  void slider();
 
 	  static void *listener(void *);
+		static int buffersize;
 
 	private:
 		int len;
 		int lws;
 		int windowsize;
-		int buffersize;
 		bool status;
 		UdpClient rclient;
 		std::vector<Packet> datastorage;

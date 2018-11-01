@@ -1,10 +1,10 @@
 #include "sender.h"
 
-Sender::Sender(int port, int windowsize) : rclient("127.0.0.1", port) {
+int Sender::buffersize = 0;
+Sender::Sender(int port, int windowsize, char* ip) : rclient(ip, port) {
 	this->windowsize = windowsize;
 	lws = 0;
 	status = true;
-	buffersize = BUFFER_SIZE;
 }
 
 Sender::~Sender() {
@@ -87,11 +87,11 @@ void Sender::slider() {
 }
 
 void* Sender::listener(void * tSender) {
-	char msgrecv[BUFFER_SIZE+10];
+	char msgrecv[buffersize+10];
 	Sender* gSender = (Sender *) tSender;
 
 	while (true) {
-		if (gSender->rclient.recv(msgrecv, BUFFER_SIZE+10)) {
+		if (gSender->rclient.recv(msgrecv, buffersize+10)) {
 			Packet precv(msgrecv);
 
 			printf("[+] Received new packet\n");
@@ -104,7 +104,7 @@ void* Sender::listener(void * tSender) {
 					gSender->status = false;
 					break;
 				}
-				
+
 				gSender->acks[precv.getSeqNum()-1] = -1;
 
 			} else {

@@ -1,7 +1,8 @@
 #include "receiver.h"
 
-Receiver::Receiver(int port, int windowsize) : rserver("127.0.0.1", port) {
+Receiver::Receiver(int port, int windowsize, int tbuffersize) : rserver("127.0.0.1", port) {
 	rws = windowsize;
+	buffersize = tbuffersize;
 }
 
 Receiver::~Receiver() {
@@ -35,10 +36,10 @@ void Receiver::saveToFile(char * filename) {
 
 void Receiver::listen() {
 	uint recvaddrlen = sizeof(sockaddr_in);
-	char msgrecv[BUFFER_SIZE+10];
+	char msgrecv[buffersize+10];
 
 	while (true) {
-		if (rserver.recvfrom(msgrecv, BUFFER_SIZE+10, recvaddr, recvaddrlen) > 0) {
+		if (rserver.recvfrom(msgrecv, buffersize+10, recvaddr, recvaddrlen) > 0) {
 			Packet precv(msgrecv);
 
 			printf("[+] Received new packet\n");
