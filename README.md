@@ -28,7 +28,7 @@ Kami membuat dua kelas utama yaitu Sender dan Receiver. Kelas pendukungnya yaitu
 
 Selanjutnya, pada kelas Receiver mempunyai beberapa method yaitu sebagai berikut:
     
-    1. void sendack(i)
+    1. void sendack()
     Pada fungsi sendack ini, receiver akan mengirim ACK ke Sender melewati kelas UdpServer. Fungsi send pada UdpServer merupakan kebalikan dari UdpClient yaitu mengirim message dari Receiver ke Sender. 
     
     2. void saveToFile(char*)
@@ -41,8 +41,10 @@ Selanjutnya, pada kelas Receiver mempunyai beberapa method yaitu sebagai berikut
 ### Pembagian tugas kelompok
 1. William Juniarta - 13516026
 2. Ivan Jonathan - 13516059
+    
     Mengerjakan kelas Sender, UdpClient beserta fungsi-fungsinya.
 3. Muhammad Alfian Rasyidin - 13516104
+
      Mengerjakan kelas Receiver, UdpServer beserta fungsi-fungsinya. 
 
 ### Anggota
