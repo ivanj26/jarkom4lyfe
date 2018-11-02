@@ -16,22 +16,11 @@ SOH(0x1)|Sequence Number|Data Length|Data|Check Sum
 ---|---|---|---|---
 1 byte|4 byte|4 byte|Max 1024 byte|1 byte
 
+
 ACK|Next Sequence Number|Checksum
 ---|---|---
 1 byte|4 byte|1 byte
 
----
-
-### Petunjuk penggunaan program
-
-1. Untuk menjalankan program sender dapat dijalankan dengan perintah:
-      ```
-      ./sendfile <filename> <windowsize> <buffersize> <destination_ip> <destination_port>
-      ```
-2. Sedangkan pada program receiver dapat dijalankan dengan perintah:
-    ```
-    ./recvfile <filename> <windowsize> <buffersize> <port>
-    ```
 ---
     
 ### Cara kerja sliding window
@@ -61,15 +50,27 @@ Selanjutnya, pada kelas Receiver mempunyai beberapa method yaitu sebagai berikut
     Pada fungsi listen ini, Receiver akan menunggu untuk paket yang dikirim oleh Sender. Bila paket tersebut valid, maka Receiver akan mengirimkan ACK sebaliknya akan mengirimkan NAK.
 
 ---
+### Petunjuk penggunaan program
 
+1. Untuk menjalankan program sender dapat dijalankan dengan perintah:
+      ```
+      ./sendfile <filename> <windowsize> <buffersize> <destination_ip> <destination_port>
+      ```
+2. Sedangkan pada program receiver dapat dijalankan dengan perintah:
+    ```
+    ./recvfile <filename> <windowsize> <buffersize> <port>
+    ```
+---
 ### Pembagian tugas kelompok
 1. William Juniarta - 13516026
+
+   Mengerjakan kelas UdpClient, Udp Server beserta fungsi-fungsinya.
 2. Ivan Jonathan - 13516059
     
-    Mengerjakan kelas Sender, UdpClient beserta fungsi-fungsinya.
+    Mengerjakan kelas Sender, UdpClient beserta fungsi-fungsinya
 3. Muhammad Alfian Rasyidin - 13516104
 
-     Mengerjakan kelas Receiver, UdpServer beserta fungsi-fungsinya. 
+     Mengerjakan kelas Receiver, UdpServer beserta fungsi-fungsinya
 
 ---
 ### Anggota
