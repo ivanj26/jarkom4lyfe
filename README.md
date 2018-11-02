@@ -10,7 +10,7 @@ Cara kerja sliding windows protocol adalah sliding windows akan menelusuri buffe
 
 Untuk mempermudah mempelajari cara kerja sliding window protocol ini, dapat dilihat cara penggunaannya dengan animasi [disini](http://www.ccs-labs.org/teaching/rn/animations/gbn_sr/)
 
----
+***
 #### Frame
 SOH(0x1)|Sequence Number|Data Length|Data|Check Sum
 ---|---|---|---|---
@@ -62,18 +62,18 @@ Selanjutnya, pada kelas Receiver mempunyai beberapa method yaitu sebagai berikut
     ```
 ---
 ### Pembagian tugas kelompok
-1. William Juniarta - 13516026
+1. William Juniarta Hadiman - 13516026
 
    Mengerjakan kelas UdpClient, Udp Server beserta fungsi-fungsinya.
 2. Ivan Jonathan - 13516059
     
-    Mengerjakan kelas Sender, UdpClient beserta fungsi-fungsinya
+    Mengerjakan kelas Sender beserta fungsi-fungsinya
 3. Muhammad Alfian Rasyidin - 13516104
 
-     Mengerjakan kelas Receiver, UdpServer beserta fungsi-fungsinya
+     Mengerjakan kelas Receiver beserta fungsi-fungsinya
 
 ---
 ### Anggota
-1. William Juniarta         - 13516026
+1. William Juniarta Hadiman - 13516026
 2. Ivan Jonathan            - 13516059
 3. Muhammad Alfian Rasyidin - 13516104
