@@ -14,7 +14,11 @@ Untuk mempermudah mempelajari cara kerja sliding window protocol ini, dapat dili
 #### Frame
 SOH(0x1)|Sequence Number|Data Length|Data|Check Sum
 ---|---|---|---|---
-1 byte|4 byte|4 byte|Max 1024 byte|1byte
+1 byte|4 byte|4 byte|Max 1024 byte|1 byte
+
+ACK|Next Sequence Number|Checksum
+---|---|---
+1 byte|4 byte|1 byte
 
 ---
 
@@ -28,6 +32,7 @@ SOH(0x1)|Sequence Number|Data Length|Data|Check Sum
     ```
     ./recvfile <filename> <windowsize> <buffersize> <port>
     ```
+---
     
 ### Cara kerja sliding window
 Kami membuat dua kelas utama yaitu Sender dan Receiver. Kelas pendukungnya yaitu Packet (merupakan packet yang akan dikirim oleh Sender). Setelah pembacaan file selesai, Sender akan mengirimkan packet dengan timeout per packet sedangkan receiver untuk menerima packet yang dikirimkan oleh Sender dengan mengirimkan ACK bila tidak terjadi error pada packet sedangkan NAK bila terjadi error pada packet. Kelas Sender mempunyai beberapa method yakni:
@@ -55,6 +60,7 @@ Selanjutnya, pada kelas Receiver mempunyai beberapa method yaitu sebagai berikut
     3. void listen()
     Pada fungsi listen ini, Receiver akan menunggu untuk paket yang dikirim oleh Sender. Bila paket tersebut valid, maka Receiver akan mengirimkan ACK sebaliknya akan mengirimkan NAK.
 
+---
 
 ### Pembagian tugas kelompok
 1. William Juniarta - 13516026
@@ -65,6 +71,7 @@ Selanjutnya, pada kelas Receiver mempunyai beberapa method yaitu sebagai berikut
 
      Mengerjakan kelas Receiver, UdpServer beserta fungsi-fungsinya. 
 
+---
 ### Anggota
 1. William Juniarta         - 13516026
 2. Ivan Jonathan            - 13516059
